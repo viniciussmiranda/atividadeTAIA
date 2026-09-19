@@ -1,0 +1,10 @@
+# Uma URL por linha. Linhas começando com # são ignoradas.
+# Use este arquivo com scripts/scrape_urls.py para expandir a base de
+# conhecimento com o domínio real escolhido pela sua equipe.
+#
+# Exemplos (mesmo domínio de jogos eletrônicos usado na base de demonstração):
+# https://pt.wikipedia.org/wiki/Steam_(plataforma)
+# https://pt.wikipedia.org/wiki/Fortnite
+# https://pt.wikipedia.org/wiki/Among_Us
+# https://pt.wikipedia.org/wiki/Realidade_virtual
+# https://pt.wikipedia.org/wiki/Jogo_eletrônico_de_mundo_aberto

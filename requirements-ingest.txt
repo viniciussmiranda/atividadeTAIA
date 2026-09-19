@@ -1,0 +1,8 @@
+# Dependências extras usadas SOMENTE localmente pelos scripts de coleta e
+# ingestão (scripts/scrape_urls.py e leitura de PDF/HTML em scripts/ingest.py).
+# NÃO são necessárias no deploy da Vercel — por isso ficam fora do
+# requirements.txt principal, mantendo o bundle da função pequeno.
+-r requirements.txt
+beautifulsoup4==4.12.3
+pypdf==5.1.0
+uvicorn[standard]==0.32.1

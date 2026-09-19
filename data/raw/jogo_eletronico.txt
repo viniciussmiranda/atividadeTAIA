@@ -1,0 +1,37 @@
+[Título: Jogo eletrônico | Fonte: https://pt.wikipedia.org/wiki/Jogo_eletrônico]
+
+Um jogo eletrônico, também chamado de videogame, é um jogo em que o jogador interage por meio de periféricos conectados ao dispositivo, como controles (joysticks) e/ou teclado, com imagens enviadas a uma televisão ou monitor, ou seja, que utiliza tecnologia computacional. Os sistemas eletrônicos usados para jogar videogames são conhecidos como plataformas — como, por exemplo, computadores, fliperamas, celulares e consoles.
+
+O dispositivo de entrada usado para manipular jogos eletrônicos é chamado de controle e varia conforme a plataforma. Jogos de computador também podem ser jogados com teclado ou combinação de teclado com mouse simultaneamente, ou até controles específicos. Jogos eletrônicos também podem usar outras formas de interagir e fornecer informação ao jogador, como sons, vibração e sensores de movimento, dando origem a jogos de realidade virtual.
+
+Devido à falta de documentação, é difícil determinar qual teria sido o primeiro jogo eletrônico criado; porém a primeira menção a algo parecido com um videogame data de 1947, quando físicos testando equipamentos para o desenvolvimento de televisores criaram um dispositivo de entretenimento conectando um tubo de raios catódicos a um osciloscópio, patenteado no ano seguinte por Thomas T. Goldsmith Jr. e Estle Ray Mann.
+
+Em 1952, o professor de ciência da computação Alexander Shafto Douglas criou o primeiro jogo gráfico para computadores na Universidade de Cambridge, um simulador do jogo da velha chamado OXO, desenvolvido usando um computador EDSAC.
+
+Em 1958, o físico nuclear americano William Higinbotham criou o "Tennis for Two", um enorme computador analógico conectado a um osciloscópio que simulava uma partida de tênis, exibido no Brookhaven National Laboratory, em Nova York.
+
+Em 1961, pesquisadores do Massachusetts Institute of Technology (MIT) criaram o jogo Spacewar!, cuja temática era guerra espacial, programado em Assembly e executado em um computador DEC-PDP 1.
+
+Em 1971, a empresa Computer Space, criada por Nolan Bushnell e Ted Dabney, começou a vender o primeiro fliperama do mundo, baseado no jogo Spacewar! de 1962. Em 1972 foi lançado o primeiro console doméstico da história, o Odyssey, da Magnavox. No mesmo ano, Nolan Bushnell, agora na Atari, lança o primeiro grande sucesso comercial de um jogo eletrônico, o fliperama Pong, abrindo caminho para a lucrativa indústria de videogames.
+
+O grande número de clones de Pong levou a indústria à primeira grande crise em 1977, sendo superada principalmente pelo jogo Space Invaders, iniciando a época de ouro dos fliperamas. Em 1979, a Milton Bradley Company lança o Microvision, o primeiro console portátil a usar cartuchos intercambiáveis; em 1980 a Nintendo lança o primeiro dispositivo da linha Game & Watch, produzida até 1991.
+
+Em 1983 houve uma grande crise na indústria de jogos eletrônicos, com a receita caindo de 3,2 bilhões de dólares para 100 milhões em 1985. Ainda nesse ano, a Nintendo lança seu console no Japão, o Famicom, que chega aos Estados Unidos em 1985 com o nome Nintendo Entertainment System, considerado um marco no renascimento dos videogames. A Sega lança o Mark III no Japão, que chega aos Estados Unidos em 1986 como Master System.
+
+Em 1988, a Sega lança o Mega Drive, seu primeiro console de 16 bits, cujo principal concorrente seria o Super Nintendo Entertainment System, lançado em 1990. Em 1989, a Nintendo lança o Game Boy, o primeiro portátil a alcançar grande sucesso na indústria.
+
+Em 1994, a Sega lança o Sega Saturn e a Sony lança seu primeiro console, o PlayStation; em 1996 a Nintendo lança o Nintendo 64. Em 2000, a Sony lança o PlayStation 2, que detém o título de console mais vendido da história. Em 2001, a Nintendo lança o GameCube, o portátil Game Boy Advance, e a Microsoft lança o Xbox.
+
+Em 2005, a Microsoft lança o Xbox 360; em 2006 a Sony lança o PlayStation 3 e a Nintendo lança o Wii. Em 2013, a Sony lança o PlayStation 4 e a Microsoft lança o Xbox One. Em 2017, a Nintendo lança o console Nintendo Switch. Em 2020, a Microsoft lança o Xbox Series X|S e a Sony lança o PlayStation 5.
+
+O termo "plataforma" se refere à combinação eletrônica ou hardware específico que, junto com o software, faz o jogo eletrônico funcionar. Um console de videogame é um dispositivo eletrônico especializado que pode ser conectado a uma televisão. Um console portátil é um dispositivo eletrônico portátil que pode ser segurado nas mãos do usuário, já vindo com tela, alto-falantes, controle e bateria. Um fliperama geralmente se refere a um jogo que é jogado em um dispositivo eletrônico especializado, que geralmente contém apenas um jogo, é encontrado em um gabinete e é operado por fichas ou cartões.
+
+Um jogo eletrônico pode ser categorizado em gêneros com base em fatores como jogabilidade, tipos de objetivos, estilo artístico e interatividade. Entre os principais gêneros destacam-se ação, aventura, estratégia, RPG, jogos eletrônicos de tabuleiro, jogos on-line, jogos casuais, simuladores, jogos de corrida, jogos esportivos, jogos de cartas colecionáveis, visual novels, jogos musicais e quebra-cabeças.
+
+Emuladores são softwares que simulam o comportamento de uma plataforma diferente da original para executar seus jogos. Existem emuladores em computadores pessoais, smartphones e outros consoles. Emuladores surgiram no início da década de 1990 e são comumente usados para jogar jogos antigos, fazer ROM hacking e traduzir jogos. Em alguns países, a emulação sem autorização do distribuidor é considerada ilegal.
+
+Estudos mostram que jogadores apresentam aumento na coordenação olho-mão e coordenação visomotora, como resistência à distração e maior sensibilidade a informações na visão periférica. Um estudo de 2008 com 33 cirurgiões laparoscópicos mostrou que aqueles que jogavam jogos eletrônicos realizavam procedimentos 27% mais rápido e com 37% menos erros.
+
+O vício em jogos eletrônicos é um tipo de dependência comportamental em que a pessoa deixa de realizar suas atividades diárias para continuar jogando, o que compromete atividades básicas como higiene pessoal, alimentação, trabalho e/ou estudos e vida social. Em janeiro de 2018, foi anunciado que o transtorno de vício em jogos seria incorporado como doença pela 11ª Classificação Internacional de Doenças (CID-11).
+
+Conferências de jogos são eventos importantes da indústria. A Electronic Entertainment Expo, também conhecida como E3, era realizada anualmente em Los Angeles, nos Estados Unidos, no mês de junho. A Gamescom, realizada anualmente em Colônia, na Alemanha, no mês de agosto, é a que atrai mais público no mundo, com mais de 300 mil visitantes. A Tokyo Game Show, em Tóquio, no Japão, é realizada em setembro e atrai 250 mil pessoas. No Brasil, a conferência mais importante é a Brasil Game Show, realizada no mês de outubro em São Paulo.

@@ -1,0 +1,21 @@
+[Título: Nintendo Switch | Fonte: https://pt.wikipedia.org/wiki/Nintendo_Switch]
+
+O Nintendo Switch é um console de jogos eletrônicos híbrido de oitava geração produzido pela Nintendo, revelado em 2016 e lançado oficialmente em 3 de março de 2017. Sucedeu o Wii U e competiu com o Xbox One da Microsoft e o PlayStation 4 da Sony, além dos consoles de nona geração, Xbox Series X/S e PlayStation 5. No Brasil, foi lançado em 2020.
+
+O Switch é um console híbrido semelhante a um tablet que, com o auxílio de um dock, vira console de mesa. Conta com dois controles sem fio chamados Joy-Con, que podem ser usados individualmente ou acoplados na base no modo portátil. Um modelo exclusivamente portátil, o Nintendo Switch Lite, foi lançado em 20 de setembro de 2019, e uma revisão com tela OLED, o Nintendo Switch OLED, foi lançada em 8 de outubro de 2021.
+
+Aproximadamente três milhões de unidades foram vendidas no primeiro mês de lançamento, e em um ano o console atingiu mais de 14 milhões de unidades vendidas no mundo, superando as vendas totais do Wii U. Em setembro de 2024, todos os modelos do Nintendo Switch já haviam vendido aproximadamente 146 milhões de unidades no mundo, tornando-o o console doméstico mais vendido da Nintendo e o terceiro console de jogos mais vendido de todos os tempos, atrás do PlayStation 2 e do Nintendo DS.
+
+O Switch foi originalmente conhecido pelo codinome Nintendo NX, citado pela primeira vez em março de 2015. Foi revelado por meio de um trailer em 20 de outubro de 2016, confirmando que seria um console híbrido. Seu lançamento ocorreu em 3 de março de 2017, com preço sugerido de US$ 299.
+
+O sistema principal do Switch é formado pelo tablet "Switch Console", o módulo "Switch Dock" e dois controles Joy-Con. A unidade principal tem tela LCD de 6,2 polegadas com suporte a multitoque e resolução 720p, bateria embutida, entrada para cartão de jogos e porta USB-C. Conectado ao dock, o clock do processador aumenta, mostrando o potencial real do console; a resolução de saída via HDMI pode chegar a 1080p.
+
+O Switch utiliza um processador integrado da família Tegra, desenvolvido em parceria com a Nvidia, baseado no Nvidia Tegra X1 SoC, com CPUs ARM Cortex-A57 e Cortex-A53 e núcleos CUDA Maxwell. Possui 4GB de RAM LPDDR4 e conectividade Wi-Fi 802.11ac e Bluetooth 4.1.
+
+O armazenamento interno é de 32GB, expansível a até 2TB via cartões microSD. O Switch Lite, lançado em 20 de setembro de 2019, é uma versão mais compacta focada no uso portátil, com tela de 5,5 polegadas e Joy-Cons integrados ao console.
+
+O modelo OLED, anunciado em 6 de julho de 2021, possui tela OLED de 7 polegadas, 64 GB de armazenamento interno e áudio aprimorado, lançado em 8 de outubro de 2021.
+
+Os jogos do Nintendo Switch mais vendidos até março de 2024 incluem Mario Kart 8 Deluxe (61,97 milhões), Animal Crossing: New Horizons (45,36 milhões), Super Smash Bros. Ultimate (34,22 milhões), The Legend of Zelda: Breath of the Wild (31,85 milhões) e Super Mario Odyssey (27,96 milhões).
+
+Em 16 de janeiro de 2025, o Nintendo Switch 2 foi revelado oficialmente, apresentando novo design e controladores Joy-Con magnéticos, além de uma prévia de um novo jogo Mario Kart.

@@ -1,0 +1,25 @@
+[Título: História dos jogos eletrônicos | Fonte: https://pt.wikipedia.org/wiki/História_dos_jogos_eletrônicos]
+
+A história dos jogos eletrônicos começou quando acadêmicos desenvolveram jogos simples, simuladores e programas de inteligência artificial como parte de pesquisas em ciência da computação. Somente a partir das décadas de 1970 e 1980 é que os jogos eletrônicos se tornaram populares, quando jogos de arcade, consoles e jogos de computador foram introduzidos ao público em geral.
+
+Devido à falta de documentação, é difícil determinar qual foi o primeiro jogo eletrônico. Alguns dos primeiros jogos conhecidos incluem Nimrod (1951), uma máquina feita sob encomenda pela Ferranti; OXO (1952), criado por Alexander S. Douglas para o computador EDSAC, simulando o jogo da velha; e Hutspiel (1955), um jogo de guerra construído pelo exército dos Estados Unidos. Tennis for Two, criado pelo físico William Higinbotham em 1958, simulava uma partida de tênis na tela de um osciloscópio.
+
+Steve Russell e colegas do MIT criaram Spacewar!, testado em 30 de julho de 1961 e considerado o primeiro jogo eletrônico de tiro da história. A fabricante do computador PDP-1, a DEC, passou a incluí-lo como programa de teste em cada unidade vendida, ajudando na sua distribuição.
+
+Em 1972 chega às lojas americanas o Odyssey, da Magnavox, fruto do protótipo "Brown Box" de Ralph Baer, sendo o primeiro console de videogame da história. No mesmo ano, Pong, criado por Nolan Bushnell na Atari, torna-se um fenômeno comercial, levando a Sears a comprar 150.000 unidades do arcade.
+
+A Fairchild Camera & Instrument lança o Fairchild Channel F, o primeiro videogame programável. Sob a liderança de Bushnell, a Atari lança o VCS (mais tarde chamado Atari 2600). Em 1980, dois lançamentos aumentam a popularidade dos jogos: Football, da Atari, e o lendário Space Invaders, importado pela Midway e desenvolvido pela Taito, que chegou a provocar falta de moedas no mercado. A Namco lança Pac-Man, o arcade mais famoso de todos os tempos, com mais de 300 mil unidades vendidas no mundo.
+
+Em 1981, o artista Shigeru Miyamoto cria o jogo Donkey Kong para a Nintendo. O herói, apelidado de Jumpman, mais tarde seria renomeado como Mario, pois funcionários da Nintendo acharam o personagem parecido com Mario Segali, dono do galpão usado pela Nintendo em Seattle.
+
+Em 1983 houve o "crash" dos videogames, principalmente nos Estados Unidos, causado pela proliferação de jogos de baixíssima qualidade. No mesmo ano, a Nintendo lança no Japão o Family Computer (Famicom), que chega ao ocidente em 1985 como Nintendo Entertainment System (NES), acompanhado de títulos como Super Mario Bros., Duck Hunt e The Legend of Zelda. A Sega lança o Master System, distribuído no Brasil pela Tectoy.
+
+Em 1985 é lançado Tetris, criado pelo russo Alexey Pajitnov, um dos maiores sucessos da história dos jogos eletrônicos. Em 1989, a Nintendo lança o Game Boy nos Estados Unidos por US$149,95, iniciando uma história de recordes de vendas para portáteis.
+
+A quinta geração de consoles trouxe o Sega Saturn (1994), o PlayStation da Sony (1994), nascido de uma parceria desfeita com a Nintendo para um periférico de CD para o Super NES, e o Nintendo 64 (1996). O PlayStation tornou-se líder da geração, vendendo mais de 100 milhões de consoles.
+
+A sexta geração trouxe o Sega Dreamcast (1998), o PlayStation 2 (2000), que se tornaria o console mais vendido da história com mais de 150 milhões de unidades, o Nintendo GameCube (2001) e o Xbox (2001), primeira incursão da Microsoft no mercado de consoles.
+
+A sétima geração começou em 2005 com o Xbox 360, seguido pelo PlayStation 3 e pelo Wii da Nintendo, ambos lançados em 2006. O Wii se destacou por seu controle sensível a movimento e por seu baixo custo de produção, tornando-se um grande sucesso comercial mundial.
+
+Em 2010, a Microsoft lança o Kinect para Xbox 360, um sensor de movimento que dispensa o uso de controle físico, batizado durante o desenvolvimento de "Projeto Natal" em homenagem à cidade brasileira, já que um dos criadores era natural de Natal, no Rio Grande do Norte.

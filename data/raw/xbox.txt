@@ -1,0 +1,17 @@
+[Título: Xbox | Fonte: https://pt.wikipedia.org/wiki/Xbox]
+
+Xbox é uma marca de consoles de jogos eletrônicos desenvolvida e patenteada pela Microsoft, abrangendo consoles da sexta à nona geração de videogames, além do serviço on-line Xbox Live, aplicativos, serviços de streaming, Xbox Cloud Gaming e o Xbox Game Pass. A marca foi introduzida pela primeira vez em 15 de novembro de 2001, nos Estados Unidos, com o lançamento do console Xbox.
+
+O primeiro Xbox foi o primeiro console oferecido por uma empresa norte-americana após o Atari Jaguar, em 1996, chegando a mais de 24 milhões de unidades vendidas até maio de 2006. Como parte da sexta geração, competiu com o Sony PlayStation 2, Sega Dreamcast e o Nintendo GameCube. O nome Xbox veio de uma contração de "DirectX Box".
+
+O serviço Xbox Live foi lançado em novembro de 2002, permitindo que jogadores jogassem online com conexão de banda larga, exigindo assinatura.
+
+O Xbox 360, sucessor do Xbox, competiu com o PlayStation 3 e o Nintendo Wii na sétima geração. Até setembro de 2012, 70 milhões de cópias do console foram vendidas no mundo. Apresentou problemas de superaquecimento nos primeiros anos, conhecidos popularmente como os "3 anéis da morte" (Red Rings of Death). Na E3 2010, a Microsoft anunciou um redesenho mais fino do console, com Wi-Fi 802.11 b/g/n integrado.
+
+O Xbox One, sucessor do Xbox 360, competiu com o PlayStation 4 e o Nintendo Wii U na oitava geração, lançado em novembro de 2013, com variantes Xbox One X e Xbox One S. Possui 8GB de RAM, drive Blu-ray, arquitetura nativa de 64 bits, disco rígido integrado de 500GB, HDMI, Wi-Fi 802.11n, CPU de 8 núcleos e USB 3.0.
+
+Durante o The Game Awards 2019, a Microsoft anunciou oficialmente o Xbox Series X, sob o codinome "Project Scarlett", lançado em 10 de novembro de 2020. A Microsoft afirmou que seria quatro vezes mais poderoso que o Xbox One X, com CPU Zen 2 da AMD, arquitetura gráfica RDNA, unidade de estado sólido personalizada, GDDR6 SDRAM e suporte a ray tracing em tempo real, renderização de até 120 quadros por segundo e resolução 8K.
+
+O Xbox Live é um serviço on-line com mais de 40 milhões de usuários (pesquisa de janeiro de 2012), composto pelo mercado virtual Xbox Live Marketplace, que permite compra e download de jogos e conteúdo multimídia.
+
+O Kinect é um sensor de movimento produzido pela Microsoft para Xbox 360 e Windows, lançado na América do Norte em 4 de novembro de 2010, permitindo controlar o console sem a necessidade de um controle físico. A Microsoft afirmou que o Kinect entrou no Guinness World Records como o "mais vendido dispositivo eletrônico de consumo", vendendo 8 milhões de unidades em aproximadamente 60 dias.

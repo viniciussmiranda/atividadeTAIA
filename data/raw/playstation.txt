@@ -1,0 +1,27 @@
+[Título: PlayStation | Fonte: https://pt.wikipedia.org/wiki/PlayStation]
+
+PlayStation é uma marca internacional de consoles de videogame criada e desenvolvida pela Sony Interactive Entertainment, uma divisão da Sony. A marca possui 7 consoles que abrangem a quinta, sexta, sétima, oitava e nona gerações de videogames. Foi lançada pela primeira vez em 3 de dezembro de 1994 no Japão.
+
+A ideia da marca surgiu em 1988, quando a Sony tentou se unir à Nintendo para fazer uma série de discos chamados "Super Disc" que leriam o console Super Famicom. As empresas criaram juntas um console que nunca foi lançado, sendo um deles descoberto em 2015.
+
+O primeiro PlayStation foi lançado em 3 de dezembro de 1994 no Japão e em 29 de setembro de 1995 nos Estados Unidos. Desde seu lançamento até 2006, quando sua produção foi extinta, a PlayStation vendeu mais de 103 milhões de unidades. Inicialmente, PlayStation seria um leitor de CD-ROM para o Super Nintendo Entertainment System, o SNES-CD, a ser produzido em conjunto com a Nintendo, mas o acordo entre as empresas foi rompido. O engenheiro Ken Kutaragi convenceu os executivos da Sony a continuar com o projeto, dando origem à divisão Sony Computer Entertainment.
+
+Os principais concorrentes da primeira geração eram o Nintendo 64 e o Sega Saturn. Entre os jogos de maior sucesso destacam-se os dois primeiros Gran Turismo, a série Tekken, Tomb Raider, Ridge Racer, Resident Evil, Need For Speed, Crash Bandicoot, Dragon Quest VII, Spyro, Silent Hill e Driver.
+
+O PlayStation 2 é o segundo console produzido pela Sony, lançado inicialmente em 4 de março de 2000 no Japão. O PlayStation 2 possui o título de console de videogame mais vendido da história, com mais de 150 milhões de unidades comercializadas no mundo. No Brasil, de acordo com a Sony, o PlayStation não foi vendido oficialmente devido à pirataria e a uma disputa judicial pelos nomes PlayStation e PS2. Em 2009, a Sony do Brasil finalmente lançou a linha PlayStation 2 no país.
+
+O PlayStation 3 é o terceiro console, sucessor do PlayStation 2, lançado em 12 de novembro de 2006 no Japão e oficialmente no Brasil em 11 de agosto de 2010.
+
+O PlayStation 4 veio após o PlayStation 3, lançado em 15 de novembro de 2013 nos Estados Unidos e em 29 de novembro de 2013 na América Latina, incluindo o Brasil. O preço no lançamento foi de US$399 nos Estados Unidos e R$3.999 no Brasil. A consola introduziu o controle DualShock 4. A Sony também revelou o PlayStation 4 Pro, versão revista e mais potente do PS4.
+
+O PlayStation 5 foi lançado mundialmente em 12 de novembro de 2020, parte da nona geração de consoles, junto com o Xbox Series X e S. O console utiliza uma CPU de 8 núcleos baseada na microarquitetura Zen 2 da AMD, fabricada em processo de 7 nanômetros, com processador gráfico da família Navi da AMD com suporte a ray tracing por hardware. Possui armazenamento SSD personalizado, com foco em tempos de carregamento mais rápidos, e suporta streaming de conteúdo em resolução 8K. A unidade de Blu-ray suporta discos de 100 GB e Blu-ray Ultra HD.
+
+O novo controle DualSense possui gatilhos adaptativos que alteram a resistência conforme necessário, forte feedback tátil por atuadores de bobina de voz, alto-falante aprimorado e conectividade USB-C. O PlayStation 5 é compatível com a maioria dos jogos de PlayStation 4 e PlayStation VR.
+
+Em 10 de setembro de 2024, a Sony anunciou o PlayStation 5 PRO na Europa e Estados Unidos, prometendo jogos em resolução 4K a 60 fps, com chip AMD até 27% mais potente e 68% mais unidades de computação, além de 2 terabytes de armazenamento. O lançamento oficial ocorreu em 7 de novembro de 2024. Em setembro de 2024, para comemorar os 30 anos da marca, a Sony lançou uma edição limitada do PlayStation 5 com design inspirado no primeiro console, com apenas 12.300 unidades numeradas fabricadas.
+
+A PlayStation Portable (PSP), lançada em dezembro de 2004, foi a primeira consola portátil da Sony, criada para competir com o Nintendo DS. Utilizava a mídia UMD para os jogos e continha 32 MB de memória interna, expansível via cartões Memory Stick PRO Duo, com suporte a Wi-Fi.
+
+A PlayStation Vita, sucessora da PSP, foi lançada no Japão em 17 de dezembro de 2011, e no Brasil em 2 de março de 2012.
+
+Existem diversos emuladores para os consoles PlayStation, como DuckStation, ePSXe e PCSX para o PlayStation 1, PCSX2 para o PlayStation 2, e RPCS3 para o PlayStation 3. O uso indevido de emuladores está sujeito às penalidades da lei, podendo gerar problemas com direito autoral.
