@@ -7,16 +7,24 @@ Chatbot web com RAG (Retrieval-Augmented Generation), back-end em Python
 
 ## Base de conhecimento
 
-- **Domínio:** jogos eletrônicos (games) — consoles, franquias, história dos
-  videogames e esports.
-- **Fontes:** 13 artigos da Wikipédia em português (cabeçalho `[Fonte: ...]`
-  em cada arquivo de `data/raw/`), cobrindo Nintendo, PlayStation, Xbox,
-  Nintendo Switch, Super Mario, The Legend of Zelda, Minecraft, Grand Theft
-  Auto, League of Legends, esporte eletrônico e a história dos jogos
-  eletrônicos.
-- Os documentos brutos ficam em `data/raw/*.txt`. O índice vetorial
-  pré-processado (chunks + embeddings, gerado por `scripts/ingest.py`) fica
-  em `data/processed/` e é o que a aplicação usa em tempo de execução.
+- **Domínio:** jogos eletrônicos (games) — consoles, franquias, mecânicas de
+  jogo, história dos videogames e esports.
+- **Fontes combinadas** (94 documentos, 221 chunks no índice atual):
+  - 14 artigos em português (cabeçalho `[Título: ... | Fonte: ...]` em cada
+    arquivo de `data/raw/`), vindos da Wikipédia (Nintendo, PlayStation,
+    Xbox, Nintendo Switch, esporte eletrônico, história dos jogos
+    eletrônicos) e de wikis especializadas de jogos — Minecraft Wiki
+    (`pt.minecraft.wiki`), GTA Wiki (`gta.fandom.com`) e Stardew Valley
+    Wiki (`pt.stardewvalleywiki.com`) — com bem mais detalhe de mecânicas
+    de jogo do que um artigo enciclopédico genérico.
+  - 80 jogos coletados via API pública da FreeToGame
+    (`scripts/fetch_games_api.py`, salvos em `data/games_api.json`), com
+    nome, descrição, gênero, plataforma, desenvolvedora e publicadora de
+    cada jogo.
+- Os documentos brutos ficam em `data/raw/*.txt` e `data/games_api.json`.
+  O índice vetorial pré-processado (chunks + embeddings, gerado por
+  `scripts/ingest.py`) fica em `data/processed/` e é o que a aplicação usa
+  em tempo de execução.
 
 ## Estrutura do repositório
 
@@ -28,10 +36,12 @@ app/
   llm.py          # cliente da LLM externa (Groq/OpenAI/DeepSeek/NVIDIA/HF/Gemini)
   config.py       # variáveis de ambiente / configuração
 scripts/
-  ingest.py       # constrói o índice vetorial a partir de data/raw/
-  scrape_urls.py  # coleta páginas web (data/urls.txt) para data/raw/
+  ingest.py            # constrói o índice vetorial a partir de data/raw/ e data/games_api.json
+  fetch_games_api.py   # coleta jogos da API pública da FreeToGame para data/games_api.json
+  scrape_urls.py       # coleta páginas web (data/urls.txt) para data/raw/
 data/
-  raw/            # documentos brutos da base de conhecimento
+  raw/            # documentos brutos da base de conhecimento (Wikipédia + wikis de jogos)
+  games_api.json  # jogos coletados via API (gerado por scripts/fetch_games_api.py)
   processed/      # índice vetorial pré-computado (usado em runtime)
 public/
   index.html      # interface web do chatbot
@@ -64,7 +74,9 @@ uvicorn app.main:app --reload
 
 O índice vetorial em `data/processed/` já vem pronto no repositório. Só é
 necessário rodar `python scripts/ingest.py` de novo se o conteúdo de
-`data/raw/` for alterado.
+`data/raw/` ou `data/games_api.json` for alterado. Para atualizar o
+catálogo de jogos coletado via API, rode `python scripts/fetch_games_api.py`
+(não exige chave nem cadastro) e em seguida `python scripts/ingest.py`.
 
 ## Deploy na Vercel
 
