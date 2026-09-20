@@ -125,6 +125,8 @@ READERS = {
 
 def load_documents(raw_dir: Path) -> list[dict]:
     docs = []
+    if not raw_dir.exists():
+        return docs
     for path in sorted(raw_dir.rglob("*")):
         if not path.is_file() or path.suffix.lower() not in READERS:
             continue
@@ -134,6 +136,52 @@ def load_documents(raw_dir: Path) -> list[dict]:
             continue
         title, source, body = extract_title_and_source(raw_text, fallback_title=path.stem)
         docs.append({"title": title, "source": source, "text": body, "doc_file": path.name})
+    return docs
+
+
+def _format_game_text(game: dict) -> str:
+    """Monta um texto legível (e indexável) a partir de um registro de jogo
+    vindo da API, juntando os metadados estruturados com a descrição."""
+    lines = []
+    if game.get("released"):
+        lines.append(f"Lançamento: {game['released']}")
+    if game.get("genres"):
+        lines.append(f"Gêneros: {', '.join(game['genres'])}")
+    if game.get("platforms"):
+        lines.append(f"Plataformas: {', '.join(game['platforms'])}")
+    if game.get("developers"):
+        lines.append(f"Desenvolvedora(s): {', '.join(game['developers'])}")
+    if game.get("publishers"):
+        lines.append(f"Publicadora(s): {', '.join(game['publishers'])}")
+    if game.get("metacritic"):
+        lines.append(f"Nota Metacritic: {game['metacritic']}")
+    if game.get("esrb_rating"):
+        lines.append(f"Classificação etária: {game['esrb_rating']}")
+    header = "\n".join(lines)
+    description = (game.get("description") or "").strip()
+    return f"{header}\n\n{description}".strip()
+
+
+def load_games_json(games_json: Path) -> list[dict]:
+    """Carrega jogos coletados via scripts/fetch_games_api.py (lista de dicts
+    com name/description/genres/platforms/... vindos da API) no mesmo formato
+    de documento usado pelos arquivos de data/raw/."""
+    if not games_json.exists():
+        return []
+    with open(games_json, "r", encoding="utf-8") as f:
+        games = json.load(f)
+    docs = []
+    for game in games:
+        name = game.get("name")
+        text = _format_game_text(game)
+        if not name or not text:
+            continue
+        docs.append({
+            "title": name,
+            "source": game.get("website", ""),
+            "text": text,
+            "doc_file": games_json.name,
+        })
     return docs
 
 
@@ -205,20 +253,31 @@ def build_index(chunks: list[Chunk], n_components: int = 200):
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-dir", default="data/raw")
+    parser.add_argument("--games-json", default="data/games_api.json")
     parser.add_argument("--out-dir", default="data/processed")
     parser.add_argument("--n-components", type=int, default=200)
     args = parser.parse_args()
 
     raw_dir = Path(args.raw_dir)
+    games_json = Path(args.games_json)
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"Lendo documentos de {raw_dir}...")
     docs = load_documents(raw_dir)
+    print(f"  {len(docs)} documento(s) carregado(s) de {raw_dir}.")
+
+    print(f"Lendo jogos de {games_json}...")
+    game_docs = load_games_json(games_json)
+    docs.extend(game_docs)
+    print(f"  {len(game_docs)} jogo(s) carregado(s) de {games_json}.")
+
     if not docs:
-        print(f"Nenhum documento encontrado em {raw_dir}. Adicione arquivos .txt/.md/.pdf/.html e rode de novo.")
+        print(
+            f"Nenhum documento encontrado. Rode 'python scripts/fetch_games_api.py' "
+            f"para gerar {games_json}, ou adicione arquivos .txt/.md/.pdf/.html em {raw_dir}."
+        )
         sys.exit(1)
-    print(f"  {len(docs)} documento(s) carregado(s).")
 
     chunks = build_chunks(docs)
     print(f"  {len(chunks)} chunk(s) gerado(s) (tamanho alvo: {CHUNK_SIZE_CHARS} caracteres).")
