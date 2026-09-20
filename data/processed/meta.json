@@ -1,6 +1,6 @@
 {
-  "n_docs": 93,
-  "n_chunks": 220,
+  "n_docs": 94,
+  "n_chunks": 221,
   "embedding_dim": 200,
   "chunk_size_chars": 900,
   "chunk_overlap_chars": 150
