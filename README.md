@@ -31,7 +31,7 @@ Chatbot web com RAG (Retrieval-Augmented Generation), back-end em Python
 ```
 app/
   main.py         # FastAPI (entrypoint: GET /, GET /api/health, POST /api/chat)
-  graph.py        # grafo LangGraph: entrada → recuperação → prompt → LLM → resposta
+  graph.py        # grafo LangGraph com roteamento (classificação, reescrita, evidência, verificação)
   retrieval.py    # carrega o índice vetorial e faz a busca por similaridade
   llm.py          # cliente da LLM externa (Groq/OpenAI/DeepSeek/NVIDIA/HF/Gemini)
   prompts.py      # todos os prompts (v1 original + v2 refinados) e parsers das saídas JSON
@@ -41,6 +41,7 @@ scripts/
   fetch_games_api.py   # coleta jogos da API pública da FreeToGame para data/games_api.json
   scrape_urls.py       # coleta páginas web (data/urls.txt) para data/raw/
   preview_prompts.py   # mostra cada prompt montado para uma pergunta (sem gastar tokens)
+  test_graph.py        # testa todos os caminhos do grafo com LLM simulada (sem gastar tokens)
 data/
   raw/            # documentos brutos da base de conhecimento (Wikipédia + wikis de jogos)
   games_api.json  # jogos coletados via API (gerado por scripts/fetch_games_api.py)
@@ -62,10 +63,10 @@ responsabilidade, e a saída de uma etapa alimenta a próxima (prompt chaining).
 
 | Prompt | Nó do grafo | Responsabilidade | Saída |
 | --- | --- | --- | --- |
-| `PROMPT_V1_SYSTEM` | `generate_answer` (v1) | Prompt original, mantido sem alteração para a comparação | texto |
+| `PROMPT_V1_SYSTEM` | — (não usado no grafo) | Prompt original, mantido sem alteração para a comparação | texto |
 | `CLASSIFY_SYSTEM` | `classify_question` | Classificar a mensagem em `JOGOS`, `FORA_DO_DOMINIO` ou `SAUDACAO` | JSON `{categoria, confianca}` |
-| `REWRITE_SYSTEM` | `rewrite_query` | Transformar pergunta de continuação em pergunta autônoma para a busca | 1 linha de texto |
-| `ANSWER_SYSTEM_V2` | `generate_answer` (v2) | Responder só com base nos trechos, citando as fontes | texto com `[n]` + linha `Fontes:` |
+| `REWRITE_SYSTEM` | `rewrite_question` | Transformar pergunta de continuação em pergunta autônoma para a busca | 1 linha de texto |
+| `ANSWER_SYSTEM_V2` | `generate_answer` | Responder só com base nos trechos, citando as fontes | texto com `[n]` + linha `Fontes:` |
 | `VERIFY_SYSTEM` | `verify_answer` | Checar se a resposta está sustentada pelo contexto | JSON `{sustentada, motivo}` |
 
 Técnicas aplicadas nos prompts v2:
@@ -80,7 +81,7 @@ Técnicas aplicadas nos prompts v2:
   "fechar" o `<contexto>` e abrir uma região falsa.
 - **Sem evidência**: a resposta padrão é *"Não encontrei essa informação na
   base consultada."*, e `is_sem_evidencia()` permite ao grafo detectá-la.
-- **Zero-shot x few-shot** no classificador (`FEW_SHOT=0/1`). O few-shot
+- **Zero-shot x few-shot** no classificador (`FEW_SHOT=0/1`, padrão 1). O few-shot
   inclui 7 exemplos, entre eles casos de fronteira (esporte físico,
   continuação de conversa) e duas tentativas de injection.
 - **Saídas JSON tratadas como dado**: `normalize_classificacao()` e
@@ -97,6 +98,68 @@ python scripts/preview_prompts.py "E quem publicou ele?" --historico "Quando sai
 python scripts/preview_prompts.py "Oi, tudo bem?" --llm   # classificador zero-shot x few-shot (usa a API)
 ```
 
+## Grafo (LangGraph)
+
+O fluxo é controlado por um grafo com decisões (`app/graph.py`). Cada nó
+reutiliza os prompts, normalizadores e mensagens padrão de `app/prompts.py`.
+
+```mermaid
+graph TD;
+    start([início]) --> receive_question
+    receive_question --> classify_question
+    classify_question -. SAUDACAO .-> greeting
+    classify_question -. FORA_DO_DOMINIO .-> out_of_domain
+    classify_question -. JOGOS .-> rewrite_question
+    rewrite_question --> retrieve_context
+    retrieve_context -. sem evidência .-> no_evidence
+    retrieve_context -. com evidência .-> generate_answer
+    generate_answer -. "não encontrei" .-> no_evidence
+    generate_answer -. resposta .-> verify_answer
+    verify_answer -. sustentada .-> finalize
+    verify_answer -. não sustentada .-> invalid_answer
+    greeting --> finalize
+    out_of_domain --> finalize
+    no_evidence --> finalize
+    invalid_answer --> finalize
+    finalize --> fim([fim])
+```
+
+| Nó | Função |
+| --- | --- |
+| `receive_question` | Normaliza a entrada |
+| `classify_question` | Classifica em `JOGOS`, `FORA_DO_DOMINIO` ou `SAUDACAO` (`build_classify_messages`) |
+| `greeting` / `out_of_domain` | Respostas diretas (`MSG_SAUDACAO`, `MSG_FORA_DO_DOMINIO`) |
+| `rewrite_question` | Torna a pergunta autônoma para a busca; sem histórico, não chama a LLM (`needs_rewrite`) |
+| `retrieve_context` | Busca os chunks com a pergunta reformulada (`retrieve()`) |
+| `no_evidence` | Resposta `MSG_SEM_EVIDENCIA`, sem fontes |
+| `generate_answer` | Gera a resposta só com os chunks (`build_answer_messages`) |
+| `verify_answer` | Verifica se a resposta é sustentada pelo contexto (`build_verify_messages`) |
+| `invalid_answer` | Substitui a resposta por `MSG_NAO_SUSTENTADA`, sem fontes |
+| `finalize` | Nó de saída (`answer` + `sources`) |
+
+**Critério de evidência.** `retrieve()` sempre devolve os top-k chunks, e os
+scores do índice (TF-IDF + SVD) não separam bem "está na base" de "não está":
+uma pergunta sobre um jogo ausente da base pontua quase como uma presente.
+Por isso há duas camadas:
+
+1. **Piso de similaridade** (`MIN_RETRIEVAL_SCORE`, padrão `0.1`): descarta
+   buscas sem nenhuma sobreposição de vocabulário (score `0.000` nos testes;
+   as perguntas válidas testadas ficaram acima de `0.46`).
+2. **Decisão da LLM de geração**: se ela responde `MSG_SEM_EVIDENCIA`
+   (detectado por `is_sem_evidencia()`), o grafo vai para `no_evidence` sem
+   gastar a etapa de verificação.
+
+**Testes dos caminhos** (sem gastar tokens; LLM simulada, retrieval real):
+
+```bash
+python scripts/test_graph.py
+```
+
+Cobre: saudação, fora do domínio, pergunta com evidência e sustentada,
+sem evidência (piso de score e resposta "não encontrei"), resposta não
+sustentada e pergunta de continuação com histórico. Para o mesmo roteiro
+com a LLM real (apenas mostra os caminhos): `python scripts/test_graph.py --live`.
+
 ## Dependências
 
 - **Runtime** (`requirements.txt`): fastapi, pydantic, langgraph,
@@ -106,10 +169,14 @@ python scripts/preview_prompts.py "Oi, tudo bem?" --llm   # classificador zero-s
 
 ## Instruções de execução (local)
 
+> Use **Python 3.12** (ou 3.11/3.13). Com Python 3.14 as versões fixadas de
+> numpy/scipy/scikit-learn não têm pacote pronto e a instalação falha.
+> Com `uv`: `pip install uv && uv venv --python 3.12 .venv`.
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements-ingest.txt
+pip install -r requirements-ingest.txt   # inclui o uvicorn
 
 cp .env.example .env
 # edite o .env e coloque a LLM_API_KEY (ex.: chave gratuita da Groq)
