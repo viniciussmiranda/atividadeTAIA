@@ -34,11 +34,13 @@ app/
   graph.py        # grafo LangGraph: entrada → recuperação → prompt → LLM → resposta
   retrieval.py    # carrega o índice vetorial e faz a busca por similaridade
   llm.py          # cliente da LLM externa (Groq/OpenAI/DeepSeek/NVIDIA/HF/Gemini)
+  prompts.py      # todos os prompts (v1 original + v2 refinados) e parsers das saídas JSON
   config.py       # variáveis de ambiente / configuração
 scripts/
   ingest.py            # constrói o índice vetorial a partir de data/raw/ e data/games_api.json
   fetch_games_api.py   # coleta jogos da API pública da FreeToGame para data/games_api.json
   scrape_urls.py       # coleta páginas web (data/urls.txt) para data/raw/
+  preview_prompts.py   # mostra cada prompt montado para uma pergunta (sem gastar tokens)
 data/
   raw/            # documentos brutos da base de conhecimento (Wikipédia + wikis de jogos)
   games_api.json  # jogos coletados via API (gerado por scripts/fetch_games_api.py)
@@ -49,6 +51,50 @@ vercel.json               # configuração da função Python na Vercel
 requirements.txt          # dependências de runtime
 requirements-ingest.txt   # dependências extras dos scripts de coleta/ingestão
 .env.example              # variáveis de ambiente necessárias
+```
+
+## Prompts (Engenharia de Prompt)
+
+Todos os prompts ficam em `app/prompts.py`. Na versão original (v1) havia um
+único prompt, que misturava regras e chunks no system prompt, sem
+delimitadores. Na v2, cada etapa do grafo tem um prompt com uma única
+responsabilidade, e a saída de uma etapa alimenta a próxima (prompt chaining).
+
+| Prompt | Nó do grafo | Responsabilidade | Saída |
+| --- | --- | --- | --- |
+| `PROMPT_V1_SYSTEM` | `generate_answer` (v1) | Prompt original, mantido sem alteração para a comparação | texto |
+| `CLASSIFY_SYSTEM` | `classify_question` | Classificar a mensagem em `JOGOS`, `FORA_DO_DOMINIO` ou `SAUDACAO` | JSON `{categoria, confianca}` |
+| `REWRITE_SYSTEM` | `rewrite_query` | Transformar pergunta de continuação em pergunta autônoma para a busca | 1 linha de texto |
+| `ANSWER_SYSTEM_V2` | `generate_answer` (v2) | Responder só com base nos trechos, citando as fontes | texto com `[n]` + linha `Fontes:` |
+| `VERIFY_SYSTEM` | `verify_answer` | Checar se a resposta está sustentada pelo contexto | JSON `{sustentada, motivo}` |
+
+Técnicas aplicadas nos prompts v2:
+
+- **Estrutura fixa** no system prompt: Papel, Tarefa, Regras e Formato de saída.
+- **Separação entre instruções e dados**: as regras ficam no system prompt; o
+  contexto e a pergunta vão no user prompt, dentro de `<contexto>`,
+  `<trecho id fonte>`, `<pergunta>`, `<historico>` e `<mensagem>`.
+- **Contexto tratado como dado**: os prompts dizem explicitamente que nada
+  dentro das tags é instrução. Além disso, `escape_tags()` neutraliza essas
+  tags no texto dos documentos e do usuário, para que um chunk não consiga
+  "fechar" o `<contexto>` e abrir uma região falsa.
+- **Sem evidência**: a resposta padrão é *"Não encontrei essa informação na
+  base consultada."*, e `is_sem_evidencia()` permite ao grafo detectá-la.
+- **Zero-shot x few-shot** no classificador (`FEW_SHOT=0/1`). O few-shot
+  inclui 7 exemplos, entre eles casos de fronteira (esporte físico,
+  continuação de conversa) e duas tentativas de injection.
+- **Saídas JSON tratadas como dado**: `normalize_classificacao()` e
+  `normalize_verificacao()` validam a saída contra o formato combinado e caem
+  em um valor padrão se o JSON vier inválido.
+- **Lembrete ao final** do user prompt da resposta, repetindo a regra de usar
+  só o contexto (técnica *sandwich*).
+
+Para ver os prompts montados sem chamar a LLM:
+
+```bash
+python scripts/preview_prompts.py "Quem criou o Minecraft?"
+python scripts/preview_prompts.py "E quem publicou ele?" --historico "Quando saiu o GTA V?"
+python scripts/preview_prompts.py "Oi, tudo bem?" --llm   # classificador zero-shot x few-shot (usa a API)
 ```
 
 ## Dependências
