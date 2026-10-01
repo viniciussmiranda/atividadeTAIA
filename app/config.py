@@ -59,3 +59,12 @@ def get_model() -> str:
 # --- Recuperação (retrieval) ------------------------------------------------
 TOP_K = int(os.getenv("TOP_K", "4"))
 MAX_HISTORY_MESSAGES = int(os.getenv("MAX_HISTORY_MESSAGES", "6"))
+
+# Piso mínimo de similaridade do melhor chunk para considerar que há evidência.
+# Medido no índice atual (TF-IDF + SVD): perguntas sem nenhuma sobreposição de
+# vocabulário dão 0.000; as perguntas válidas testadas ficaram em >= 0.46.
+# É só um piso: o "sem evidência" semântico é decidido pela LLM de geração.
+MIN_RETRIEVAL_SCORE = float(os.getenv("MIN_RETRIEVAL_SCORE", "0.1"))
+
+# Classificador: 1 = few-shot (7 exemplos), 0 = zero-shot.
+FEW_SHOT = os.getenv("FEW_SHOT", "1") == "1"
